@@ -38,7 +38,7 @@ function Notice() {
   };
 
   return (
-    <div className="flex flex-col h-full p-4">
+    <div className="flex flex-col h-100 p-4">
       <div className="flex justify-between items-center mb-4">
         <button
           onClick={() => setIsAdding(!isAdding)}

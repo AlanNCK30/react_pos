@@ -1,6 +1,6 @@
 function DashboardBar() {
   return (
-    <div className="flex justify-start gap-4 text-2xl text-black w-full p-4 mb-8">
+    <div className="flex justify-start gap-4 text-2xl text-black w-full p-4">
       <div className="p-2 mr-auto text-3xl">
         <h2>Dashboard</h2>
       </div>
