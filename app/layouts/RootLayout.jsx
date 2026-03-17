@@ -5,18 +5,18 @@ import Logo from "@/components/Logo";
 
 export default function RootLayout() {
   return (
-    <div className="grid grid-cols-[280px_1fr] h-screen w-full overflow-hidden bg-slate-50">
+    <div className="grid grid-cols-[280px_1fr] h-screen w-screen overflow-hidden bg-slate-50">
       <aside className="bg-slate-300 text-black p-4 flex flex-col overflow-auto">
         <Logo />
-        <nav className="space-y-2">
+        <nav className="space-y-2 h-full overflow-hidden min-h-0">
           <SideBar />
         </nav>
       </aside>
-      <div>
+      <div className="flex flex-col h-screen">
         <header>
           <TopBar />
         </header>
-        <main>
+        <main className="overflow-y-auto">
           <Outlet />
         </main>
       </div>
