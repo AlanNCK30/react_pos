@@ -1,10 +1,13 @@
 import { NavLink } from "react-router";
 import { faGauge, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ClipboardClock } from "lucide-react";
 
 const menuItems = [
-  { name: "Dashboard", path: "/", icon: faGauge },
-  { name: "POS", path: "/pos", icon: faUser },
+    { name: "Dashboard", path: "/", icon: faGauge },
+    { name: "POS", path: "/pos", icon: faUser },
+    { name: "Employee", path: "/employee", icon: faUser },
+    { name: "Order History", path: "/order-history", icon: faUser },
 ];
 
 export default function SideBar() {
