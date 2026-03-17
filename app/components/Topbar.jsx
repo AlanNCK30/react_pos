@@ -15,9 +15,9 @@ export default function TopBar() {
   });
 
   return (
-    <div className="flex text-black">
-      <h1 className="mr-auto text-3xl">Boba Store</h1>
-      <div className="flex text-2xl pr-6">
+    <div className="flex justify-center items-center text-black h-auto border-b-4 p-1">
+      <h1 className="mr-auto p-4 text-3xl bg-slate-200 rounded-2xl">Boba Store</h1>
+      <div className="flex text-2xl p-4 bg-slate-200 rounded-2xl">
         <p className="pr-6">{formattedDate}</p>
         <FontAwesomeIcon icon={faUser} />
         <p>Mark Ho</p>
