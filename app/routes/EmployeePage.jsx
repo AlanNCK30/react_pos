@@ -40,7 +40,7 @@ import { UserPlus } from "lucide-react";
 export default function EmployeePage() {
     return (
         <>
-            <section className="min-h-full  my-8">
+            <section className=" my-8">
                 {/*  TOP : Header  */}
                 <div className="flex flex-col p-4 mx-4 bg-linear-to-rshadow-lg lg:flex-row lg:items-end lg:justify-between  bg-white shadow-sm ring-1 ring-slate-200">
                     {/* <p className="tracking-[0.2em] uppercase">Employee Management</p> */}
@@ -55,7 +55,7 @@ export default function EmployeePage() {
                 </div>
             </section>
 
-            <section className="min-h-full  my-8 ">
+            <section className="  my-8 ">
                 <Card className="py-6 mx-4 rounded-xs border-0 bg-white shadow-sm ring-1 ring-slate-200">
                     <CardHeader className="gap-4 lg:flex-row lg:items-end lg:justify-between">
                         <div className="">
@@ -139,7 +139,7 @@ export default function EmployeePage() {
                     </CardContent>
                 </Card>
             </section>
-            <section className="min-h-full  my-8">
+            <section className=" my-8">
                 <Card className="p-6 mx-4 rounded-xs border-0 bg-white shadow-sm ring-1 ring-slate-200">
                     <Table>
                         <TableHeader>
