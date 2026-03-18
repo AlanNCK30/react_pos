@@ -1,8 +1,10 @@
-function DashboardBar() {
+import React from "react";
+
+function PosBar() {
   return (
     <div className="flex justify-start gap-4 text-2xl text-black w-full p-4">
       <div className="p-2 mr-auto text-3xl">
-        <h2>儀表板</h2>
+        <h2>POS</h2>
       </div>
 
       <div className="bg-chart-1 px-4 py-2 rounded-xl">
@@ -18,4 +20,4 @@ function DashboardBar() {
   );
 }
 
-export default DashboardBar;
+export default PosBar;

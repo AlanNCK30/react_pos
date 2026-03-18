@@ -25,17 +25,17 @@ const salesData = [
 ];
 
 const categoryData = [
-  { name: "Milk Tea", value: 45, fill: "#8b5cf6" },
-  { name: "Fruit Tea", value: 25, fill: "#ec4899" },
-  { name: "Smoothie", value: 20, fill: "#06b6d4" },
-  { name: "Special", value: 10, fill: "#f59e0b" },
+  { name: "奶茶", value: 45, fill: "#8b5cf6" },
+  { name: "水果茶", value: 25, fill: "#ec4899" },
+  { name: "沙冰", value: 20, fill: "#06b6d4" },
+  { name: "特飲", value: 10, fill: "#f59e0b" },
 ];
 
 const bobaStockData = [
-  { name: "黑糖珍珠", stock: 15, unit: "kg", fill: "#ef4444" }, // 低於標準，紅色警告
-  { name: "全脂鮮奶", stock: 20, unit: "kg", fill: "#ef4444" }, // 充足，灰色
-  { name: "錫蘭紅茶", stock: 8, unit: "kg", fill: "#ef4444" }, // 短缺，紅色
-  { name: "果糖", stock: 10, unit: "kg", fill: "#ef4444" }, // 警告中，橘色
+  { name: "黑糖珍珠", stock: 15, unit: "kg", fill: "#ef4444" },
+  { name: "全脂鮮奶", stock: 20, unit: "kg", fill: "#ef4444" },
+  { name: "錫蘭紅茶", stock: 8, unit: "kg", fill: "#ef4444" },
+  { name: "果糖", stock: 10, unit: "kg", fill: "#ef4444" },
   { name: "椰果", stock: 1, unit: "kg", fill: "#ef4444" },
 ];
 
@@ -93,12 +93,11 @@ function LowStockBarChart() {
         ))}
         <LabelList
           dataKey="stock"
-          position="right" // 放在長條右側
-          offset={10} // 與長條保持 10px 距離
-          fill="#4b5563" // 數字顏色 (gray-600)
+          position="right"
+          offset={10}
+          fill="#4b5563"
           fontSize={16}
           fontWeight="bold"
-          // 自定義格式，加上單位 kg
           formatter={(value) => `${value} kg`}
         />
       </Bar>

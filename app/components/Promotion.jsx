@@ -1,29 +1,29 @@
 function Promotion() {
   const promos = [
     {
-      name: "Boba Tea",
-      discount: "20% OFF",
+      name: "珍珠奶茶",
+      discount: "八折",
       bg: "bg-blue-50",
       text: "text-blue-700",
       border: "border-blue-200",
     },
     {
-      name: "Fruit Tea",
-      discount: "30% OFF",
+      name: "水果茶",
+      discount: "七折",
       bg: "bg-green-50",
       text: "text-green-700",
       border: "border-green-200",
     },
     {
-      name: "Coffee",
-      discount: "50% OFF",
+      name: "咖啡",
+      discount: "五折",
       bg: "bg-purple-50",
       text: "text-purple-700",
       border: "border-purple-200",
     },
     {
-      name: "Green Tea",
-      discount: "80% OFF",
+      name: "品茗",
+      discount: "八折",
       bg: "bg-red-50",
       text: "text-red-700",
       border: "border-red-200",
@@ -34,10 +34,7 @@ function Promotion() {
     <div className="h-full flex flex-col justify-center p-4 gap-3">
       <div className="flex items-center gap-2 mb-1">
         <span className="text-base font-black bg-orange-500 text-white px-2 py-0.5 rounded">
-          HOT
-        </span>
-        <span className="text-gray-500 text-xs font-bold tracking-widest uppercase">
-          Staff Pitch
+          熱門
         </span>
       </div>
 

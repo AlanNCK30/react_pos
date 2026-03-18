@@ -1,5 +1,6 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Logo from "../assets/logo.svg";
 
 export default function TopBar() {
   const now = new Date();
@@ -8,19 +9,24 @@ export default function TopBar() {
     month: "long",
     day: "numeric",
     weekday: "long",
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-    hour12: true,
   });
 
   return (
-    <div className="flex justify-center items-center text-black h-auto border-b-4 p-1">
-      <h1 className="mr-auto p-4 text-3xl bg-slate-200 rounded-2xl">Boba Store</h1>
-      <div className="flex text-2xl p-4 bg-slate-200 rounded-2xl">
-        <p className="pr-6">{formattedDate}</p>
-        <FontAwesomeIcon icon={faUser} />
-        <p>Mark Ho</p>
+    <div className="flex justify-between items-center px-6 py-3 border-b-2 border-slate-100 shadow-sm">
+      <div className="flex items-center gap-3 bg-chart-1 px-4 py-2 rounded-2xl">
+        <img src={Logo} alt="logo" className="h-12 w-auto object-contain" />
+        <h1 className="text-2xl font-bold text-emerald-900 tracking-tight">基哥茶飲店</h1>
+      </div>
+
+      <div className="flex items-center gap-4">
+        <div className="text-black font-medium bg-chart-1 px-4 py-2 rounded-xl">
+          {formattedDate}
+        </div>
+
+        <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-black bg-chart-1 shadow-md transition-hover hover:opacity-80 cursor-pointer">
+          <FontAwesomeIcon icon={faUser} className="text-sm opacity-80" />
+          <p className="font-semibold">Mark Ho</p>
+        </div>
       </div>
     </div>
   );

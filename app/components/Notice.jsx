@@ -44,7 +44,7 @@ function Notice() {
           onClick={() => setIsAdding(!isAdding)}
           className="flex items-center gap-2 px-2 py-0.5 rounded text-xl">
           <span className="text-base font-black bg-orange-500 text-white px-2 py-0.5 rounded group-hover:bg-orange-600 transition-colors">
-            {isAdding ? "CANCEL" : "ADD +"}
+            {isAdding ? "取消" : "增加 +"}
           </span>
         </button>
       </div>
@@ -56,7 +56,7 @@ function Notice() {
             value={newText}
             onChange={(e) => setNewText(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && addNotice()}
-            placeholder="輸入話術或公告..."
+            placeholder="輸入內容..."
             className="w-full text-xs border-2 border-indigo-200 rounded-xl px-3 py-2 outline-none focus:border-indigo-500 shadow-inner bg-indigo-50/30"
           />
         </div>
@@ -74,7 +74,7 @@ function Notice() {
             <button
               onClick={() => setNotices(notices.filter((item) => item.id !== n.id))}
               className="px-3 py-1 rounded-lg font-black text-base bg-white border border-inherit shadow-sm hover:bg-red-50 hover:text-red-600 hover:border-red-200 transition-all">
-              DELETE
+              刪除
             </button>
           </div>
         ))}
