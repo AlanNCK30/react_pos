@@ -1,0 +1,100 @@
+export const ORDER_HISTORY_MOCK_ORDERS = [
+    {
+        id: "ord-20260318-001",
+        orderNumber: "14052",
+        createdAt: "2026-03-18T09:12:00.000Z",
+        cashierName: "何榮基",
+        paymentMethod: "八達通",
+        status: "已完成",
+        totalAmount: 199.8,
+        items: [
+            {
+                id: "ord-20260318-001-item-1",
+                name: "基哥招牌奶茶",
+                quantity: 2,
+                lineTotal: 79.8,
+            },
+            {
+                id: "ord-20260318-001-item-2",
+                name: "珍珠鮮奶茶",
+                quantity: 1,
+                lineTotal: 42,
+            },
+            {
+                id: "ord-20260318-001-item-3",
+                name: "脆波波綠茶",
+                quantity: 3,
+                lineTotal: 78,
+            },
+        ],
+    },
+    {
+        id: "ord-20260318-002",
+        orderNumber: "14053",
+        createdAt: "2026-03-18T10:05:00.000Z",
+        cashierName: "陳家樂",
+        paymentMethod: "現金",
+        status: "已完成",
+        totalAmount: 118,
+        items: [
+            {
+                id: "ord-20260318-002-item-1",
+                name: "黑糖珍珠鮮奶",
+                quantity: 2,
+                lineTotal: 76,
+            },
+            {
+                id: "ord-20260318-002-item-2",
+                name: "伯爵奶蓋紅茶",
+                quantity: 1,
+                lineTotal: 42,
+            },
+        ],
+    },
+    {
+        id: "ord-20260318-003",
+        orderNumber: "14054",
+        createdAt: "2026-03-18T11:28:00.000Z",
+        cashierName: "黃佩琪",
+        paymentMethod: "信用卡",
+        status: "已退款",
+        totalAmount: 86,
+        items: [
+            {
+                id: "ord-20260318-003-item-1",
+                name: "芒果果茶",
+                quantity: 1,
+                lineTotal: 39,
+            },
+            {
+                id: "ord-20260318-003-item-2",
+                name: "芝士奶蓋烏龍",
+                quantity: 1,
+                lineTotal: 47,
+            },
+        ],
+    },
+    {
+        id: "ord-20260318-004",
+        orderNumber: "14055",
+        createdAt: "2026-03-18T12:42:00.000Z",
+        cashierName: "何榮基",
+        paymentMethod: "微信支付",
+        status: "已完成",
+        totalAmount: 154,
+        items: [
+            {
+                id: "ord-20260318-004-item-1",
+                name: "阿薩姆奶茶",
+                quantity: 2,
+                lineTotal: 72,
+            },
+            {
+                id: "ord-20260318-004-item-2",
+                name: "仙草凍鮮奶",
+                quantity: 2,
+                lineTotal: 82,
+            },
+        ],
+    },
+];

@@ -12,16 +12,16 @@ export function meta() {
 
 export default function App() {
   return (
-    <html lang="zh-Hant">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-      </body>
-    </html>
+      <html lang="zh-Hant">
+          <head>
+              <Meta />
+              <Links />
+          </head>
+          <body>
+              <Outlet />
+              <ScrollRestoration />
+              <Scripts />
+          </body>
+      </html>
   );
 }
