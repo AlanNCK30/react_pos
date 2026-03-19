@@ -4,10 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClipboardClock } from "lucide-react";
 
 const menuItems = [
-  { name: "儀表板", path: "/", icon: faGauge },
-  { name: "POS", path: "/pos", icon: faUser },
-  { name: "員工管理", path: "/employee", icon: faUser },
-  { name: "訂單歷史", path: "/order-history", icon: faUser },
+    { name: "儀表板", path: "/", icon: faGauge },
+    { name: "POS", path: "/pos", icon: faUser },
+    { name: "訂單歷史", path: "/order-history", icon: faUser },
+    { name: "庫存管理", path: "/inventory", icon: faUser },
+    { name: "員工管理", path: "/employee", icon: faUser },
 ];
 
 export default function SideBar() {

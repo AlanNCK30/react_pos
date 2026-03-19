@@ -1,0 +1,144 @@
+export const INVENTORY_STORAGE_KEY = "boba-pos.inventory.v1";
+
+export const INVENTORY_CATEGORIES = ["原料", "配料", "杯具", "包材"];
+
+export const INVENTORY_STATUS_OPTIONS = ["全部", "正常", "庫存偏低", "缺貨"];
+
+export const INVENTORY_SEED_ITEMS = [
+    {
+        id: "inv-black-pearl",
+        name: "黑糖珍珠",
+        category: "配料",
+        unit: "公斤",
+        currentStock: 12,
+        parLevel: 20,
+        reorderThreshold: 8,
+        notes: "每日煮製，需保持至少兩日安全庫存。",
+        updatedAt: "2026-03-15T09:20:00.000Z",
+    },
+    {
+        id: "inv-jasmine-tea",
+        name: "茉莉綠茶茶葉",
+        category: "原料",
+        unit: "袋",
+        currentStock: 7,
+        parLevel: 10,
+        reorderThreshold: 3,
+        notes: "熱門基底茶，週末消耗較高。",
+        updatedAt: "2026-03-14T08:10:00.000Z",
+    },
+    {
+        id: "inv-fresh-milk",
+        name: "鮮奶",
+        category: "原料",
+        unit: "公升",
+        currentStock: 18,
+        parLevel: 30,
+        reorderThreshold: 10,
+        notes: "冷藏保存，補貨週期 2 天。",
+        updatedAt: "2026-03-15T04:30:00.000Z",
+    },
+    {
+        id: "inv-coconut-jelly",
+        name: "椰果",
+        category: "配料",
+        unit: "桶",
+        currentStock: 0,
+        parLevel: 6,
+        reorderThreshold: 2,
+        notes: "已缺貨，需立即聯絡供應商。",
+        updatedAt: "2026-03-15T13:40:00.000Z",
+    },
+    {
+        id: "inv-large-cups",
+        name: "大杯杯身",
+        category: "杯具",
+        unit: "盒",
+        currentStock: 14,
+        parLevel: 20,
+        reorderThreshold: 6,
+        notes: "每盒 100 個。",
+        updatedAt: "2026-03-13T07:05:00.000Z",
+    },
+    {
+        id: "inv-large-lids",
+        name: "大杯杯蓋",
+        category: "杯具",
+        unit: "盒",
+        currentStock: 5,
+        parLevel: 12,
+        reorderThreshold: 4,
+        notes: "接近安全線，建議本週補貨。",
+        updatedAt: "2026-03-15T11:15:00.000Z",
+    },
+    {
+        id: "inv-straws",
+        name: "粗吸管",
+        category: "包材",
+        unit: "包",
+        currentStock: 9,
+        parLevel: 15,
+        reorderThreshold: 5,
+        notes: "珍珠飲品專用吸管。",
+        updatedAt: "2026-03-12T10:00:00.000Z",
+    },
+    {
+        id: "inv-sealing-film",
+        name: "封口膜",
+        category: "包材",
+        unit: "卷",
+        currentStock: 3,
+        parLevel: 8,
+        reorderThreshold: 3,
+        notes: "剛好到補貨門檻。",
+        updatedAt: "2026-03-15T16:05:00.000Z",
+    },
+];
+
+export function getInventoryStatus(item) {
+    if (item.currentStock === 0) {
+        return "缺貨";
+    }
+
+    if (item.currentStock <= item.reorderThreshold) {
+        return "庫存偏低";
+    }
+
+    return "正常";
+}
+
+export function loadInventoryItems() {
+    if (typeof window === "undefined") {
+        return INVENTORY_SEED_ITEMS;
+    }
+
+    try {
+        const storedItems = window.localStorage.getItem(INVENTORY_STORAGE_KEY);
+
+        if (!storedItems) {
+            window.localStorage.setItem(
+                INVENTORY_STORAGE_KEY,
+                JSON.stringify(INVENTORY_SEED_ITEMS)
+            );
+            return INVENTORY_SEED_ITEMS;
+        }
+
+        const parsedItems = JSON.parse(storedItems);
+
+        if (Array.isArray(parsedItems)) {
+            return parsedItems;
+        }
+    } catch (error) {
+        console.error("Unable to load inventory items from localStorage.", error);
+    }
+
+    return INVENTORY_SEED_ITEMS;
+}
+
+export function saveInventoryItems(items) {
+    if (typeof window === "undefined") {
+        return;
+    }
+
+    window.localStorage.setItem(INVENTORY_STORAGE_KEY, JSON.stringify(items));
+}

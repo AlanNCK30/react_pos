@@ -10,10 +10,12 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import DetailItem from "@/components/common/DetailItem";
+
+import DetailItem from "@/components/DetailItem";
 import { ORDER_HISTORY_MOCK_ORDERS } from "@/data/orders";
 import { formatCurrency, formatDateTime } from "../utils/formatters";
-
+import { PageHeader } from "@/components/PageHeader";
+import { HeaderButton } from "@/components/HeaderButton";
 function getOrderPreview(order) {
     return order.items.map((item) => item.name).join("、");
 }
@@ -58,22 +60,33 @@ export default function OrderHistoryPage() {
     }, [darkMode]);
 
     return (
-        <section className="flex flex-col w-full px-2">
-            <Card className="mt-2 w-full ">
+        <div className="min-h-[80vh] flex flex-col w-full px-2 mt-2">
+            <PageHeader
+                title={"歷史訂單"}
+                desc={"查閱過去所有交易細節，包括商品項目、金額、付款方式及店員資訊。"}
+                // actionBtn={
+                //     <HeaderButton
+                //         icon={ShoppingBag}
+                //         text="匯出訂單"
+                //         action={() => handleExport()}
+                //     />
+                // }
+            />
+            {/* <Card className=" ">
                 <CardHeader className="tracking-widestpro ">
-                    <CardTitle className="text-xl text-foreground">歷史訂單</CardTitle>
+                    <CardTitle className="text-xl text-foreground"></CardTitle>
 
-                    <CardDescription className="text-base">
-                        查閱過去所有交易細節，包括商品項目、金額、付款方式及店員資訊。
-                    </CardDescription>
+                    <CardDescription className="text-base"></CardDescription>
                 </CardHeader>
-            </Card>
+            </Card> */}
 
-            <div className="min-h-[80vh] w-full mt-4 grid gap-2 lg:grid-cols-[1.5fr_1fr]">
-                <Card className=" min-h-[80vh] border-0 py-6 shadow-sm ring-1">
+            <div className=" w-full mt-4 grid gap-2 lg:grid-cols-[1.5fr_1fr]">
+                <Card className=" border-0 py-6 shadow-sm ring-1 bg-card">
                     <CardHeader>
-                        <CardTitle className="text-xl tracking-widest">訂單列表</CardTitle>
-                        <CardDescription>點選訂單即可在右側查看詳細內容。</CardDescription>
+                        <CardTitle className="text-xl tracking-widestpro">訂單列表</CardTitle>
+                        <CardDescription className=" text-base tracking-widestpro">
+                            點選訂單即可在右側查看詳細內容。
+                        </CardDescription>
                     </CardHeader>
                     <CardContent>
                         {orders.length === 0 ? (
@@ -131,7 +144,7 @@ export default function OrderHistoryPage() {
                         )}
                     </CardContent>
                 </Card>
-                <Card className="min-h-[80vh] border py-6 bg-secondary shadow-sm ring-0 w-full">
+                <Card className="min-h-[80vh] w-full overflow-hidden border bg-secondary py-6 shadow-sm ring-0">
                     {selectedOrder ? (
                         <>
                             <CardHeader className="space-y-4">
@@ -153,7 +166,7 @@ export default function OrderHistoryPage() {
                                 </div>
                             </CardHeader>
 
-                            <CardContent className="flex h-full flex-col gap-6">
+                            <CardContent className="flex min-h-0 flex-1 flex-col gap-6">
                                 <div className="grid gap-3 sm:grid-cols-2">
                                     <DetailItem label="店員" value={selectedOrder.cashierName} />
                                     <DetailItem
@@ -162,7 +175,7 @@ export default function OrderHistoryPage() {
                                     />
                                 </div>
 
-                                <div className="flex flex-1 flex-col rounded-2xl p-4 ring">
+                                <div className="flex min-h-0 flex-1 flex-col rounded-2xl p-4 ring">
                                     <div className="mb-4 flex items-center gap-2">
                                         <ShoppingBag className="size-6 " />
                                         <h2 className="text-xl font-semibold tracking-wide text-foreground">
@@ -170,7 +183,7 @@ export default function OrderHistoryPage() {
                                         </h2>
                                     </div>
 
-                                    <div className="flex flex-1 flex-col gap-3">
+                                    <div className="flex flex-col gap-3">
                                         {selectedOrder.items.map((item, index) => (
                                             <div
                                                 key={item.id}
@@ -184,7 +197,7 @@ export default function OrderHistoryPage() {
                                                         {item.name}
                                                     </p>
                                                 </div>
-                                                <div className="rounded-full px-3 py-1 text-sm font-medium text-secondary bg-accent-foreground">
+                                                <div className="rounded-full bg-accent-foreground px-3 py-1 text-sm font-medium text-secondary">
                                                     x{item.quantity}
                                                 </div>
                                             </div>
@@ -203,7 +216,6 @@ export default function OrderHistoryPage() {
                                     </div>
                                 </div>
                                 <Button
-                                    onClick={() => setDarkMode(!darkMode)}
                                     variant="outline"
                                     className="h-16 rounded-xl bg-accent-foreground dark:bg-primary text-accent text-xl mx-2 ring tracking-widestpro"
                                 >
@@ -214,7 +226,7 @@ export default function OrderHistoryPage() {
                     ) : (
                         <CardContent className="flex min-h-[70vh] flex-col items-center justify-center text-center">
                             <ReceiptText className="mb-4 size-10 text-primary" />
-                            <h2 className="text-lg font-semibold text-primary">尚未選擇訂單</h2>
+                            <h2 className="text-lg font-semibold text-primary ">尚未選擇訂單</h2>
                             <p className="mt-2 max-w-sm text-sm text-accent-foreground">
                                 請從左側訂單列表中選擇一筆訂單。
                             </p>
@@ -225,6 +237,6 @@ export default function OrderHistoryPage() {
                     
                 </div> */}
             </div>
-        </section>
+        </div>
     );
 }
