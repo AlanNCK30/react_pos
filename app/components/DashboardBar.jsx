@@ -1,17 +1,17 @@
 function DashboardBar() {
   return (
-    <div className="flex justify-start gap-4 text-2xl text-black w-full p-4">
-      <div className="p-2 mr-auto text-3xl">
+    <div className="flex justify-start gap-4 text-black w-full p-3">
+      <div className="mr-auto p-3 text-3xl bg-primary text-primary-foreground rounded-xl">
         <h2>儀表板</h2>
       </div>
 
-      <div className="bg-chart-1 px-4 py-2 rounded-xl">
+      <div className="bg-primary text-primary-foreground p-2 rounded-xl flex justify-center items-center text-2xl">
         <p>每日銷售額: $1000</p>
       </div>
-      <div className="bg-chart-1 px-4 py-2 rounded-xl">
-        <p>定單數: 100杯</p>
+      <div className="bg-primary text-primary-foreground p-2 rounded-xl flex justify-center items-center text-2xl">
+        <p>訂單數: 100杯</p>
       </div>
-      <div className="bg-chart-1 px-4 py-2 rounded-xl">
+      <div className="bg-primary text-primary-foreground p-2 rounded-xl flex justify-center items-center text-2xl">
         <p>平均定單銷售額: $10</p>
       </div>
     </div>
