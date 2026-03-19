@@ -6,5 +6,6 @@ export default [
     route("pos", "./routes/PosPage.jsx"),
     route("employee", "./routes/EmployeePage.jsx"),
     route("order-history", "./routes/OrderHistoryPage.jsx"),
+    route("product-catalog", "./routes/ProductCatalog.jsx"),
   ]),
 ];
