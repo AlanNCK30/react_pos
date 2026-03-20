@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { useMemo, useState, useEffect } from "react";
+import { useMemo, useState } from "react";
+import { useNavigate } from "react-router";
 import { ReceiptText, ShoppingBag } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import {
@@ -29,6 +30,7 @@ function getStatusClassName(status) {
 }
 
 export default function OrderHistoryPage() {
+    const navigate = useNavigate();
     const orders = ORDER_HISTORY_MOCK_ORDERS;
     const [selectedOrderId, setSelectedOrderId] = useState(orders[0]?.id ?? null);
 
@@ -40,24 +42,6 @@ export default function OrderHistoryPage() {
     const totalQuantity = selectedOrder
         ? selectedOrder.items.reduce((sum, item) => sum + item.quantity, 0)
         : 0;
-
-    const [darkMode, setDarkMode] = useState(() => {
-        return (
-            localStorage.getItem("theme") === "dark" ||
-            (!localStorage.getItem("theme") &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches)
-        );
-    });
-    useEffect(() => {
-        const root = window.document.documentElement;
-        if (darkMode) {
-            root.classList.add("dark");
-            localStorage.setItem("theme", "dark");
-        } else {
-            root.classList.remove("dark");
-            localStorage.setItem("theme", "light");
-        }
-    }, [darkMode]);
 
     return (
         <div className="min-h-[80vh] flex flex-col w-full px-2 mt-2">
@@ -218,6 +202,9 @@ export default function OrderHistoryPage() {
                                 <Button
                                     variant="outline"
                                     className="h-16 rounded-xl bg-accent-foreground dark:bg-primary text-accent text-xl mx-2 ring tracking-widestpro"
+                                    onClick={() =>
+                                        navigate(`/order-history/${selectedOrder.id}`)
+                                    }
                                 >
                                     查看更多
                                 </Button>

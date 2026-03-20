@@ -40,16 +40,26 @@ const bobaStockData = [
 ];
 
 function TopSalesChart() {
-  return (
-    <LineChart className="w-full h-full aspect-video text-base" responsive data={salesData}>
-      <CartesianGrid stroke="#aaa" strokeDasharray="5 5" />
-      <Line type="monotone" dataKey="sales" stroke="purple" strokeWidth={2} name="Total Sales" />
-      <XAxis dataKey="name" />
-      <YAxis width="auto" label={{ value: "Sales($)", position: "insideLeft", angle: "-90" }} />
-      <Legend align="center" />
-      <Tooltip />
-    </LineChart>
-  );
+    // const theme = useChartTheme(isDarkMode);
+    return (
+        <LineChart className="w-full h-full aspect-video text-base" responsive data={salesData}>
+            <CartesianGrid stroke="var(--chart-1)" strokeDasharray="5 5" />
+            <Line
+                type="monotone"
+                dataKey="sales"
+                stroke="purple"
+                strokeWidth={2}
+                name="Total Sales"
+            />
+            <XAxis dataKey="name" />
+            <YAxis
+                width="auto"
+                label={{ value: "Sales($)", position: "insideLeft", angle: "-90" }}
+            />
+            <Legend align="center" />
+            <Tooltip />
+        </LineChart>
+    );
 }
 
 function SalesByDrinksPieChart() {

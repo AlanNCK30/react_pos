@@ -1,9 +1,16 @@
-import { Outlet } from "react-router";
+import { Navigate, Outlet } from "react-router";
 import SideBar from "../components/SideBar";
 import TopBar from "@/components/Topbar";
 import Logo from "@/components/Logo";
+import { getAuthSession } from "@/features/auth/authSession";
 
 export default function RootLayout() {
+  const authSession = getAuthSession();
+
+  if (!authSession) {
+    return <Navigate to="/login" replace />;
+  }
+
   return (
     <div className="grid grid-cols-[280px_1fr] h-screen w-full bg-slate-50">
       <aside className="bg-slate-300 text-black p-4 flex flex-col overflow-auto">
