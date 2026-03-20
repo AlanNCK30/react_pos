@@ -75,45 +75,52 @@ export function InventoryTableCard({
                 const status = getInventoryStatus(item);
 
                 return (
-                  <TableRow key={item.id}>
-                    <TableCell className="min-w-52 whitespace-normal">
-                      <div className="space-y-1">
-                        <p className="font-medium text-slate-900">{item.name}</p>
-                        <p className="text-xs text-muted-foreground">
-                          單位：{item.unit}
-                          {item.notes ? ` · ${item.notes}` : ""}
-                        </p>
-                      </div>
-                    </TableCell>
-                    <TableCell>{item.category}</TableCell>
-                    <TableCell>
-                      <span className="font-medium">{item.currentStock}</span>
-                      <span className="text-muted-foreground"> {item.unit}</span>
-                    </TableCell>
-                    <TableCell>{item.parLevel}</TableCell>
-                    <TableCell>{item.reorderThreshold}</TableCell>
-                    <TableCell>
-                      <Badge variant={getStatusBadgeVariant(status)}>{status}</Badge>
-                    </TableCell>
-                    <TableCell className="text-muted-foreground">
-                      {formatTimestamp(item.updatedAt)}
-                    </TableCell>
-                    <TableCell>
-                      <div className="flex justify-end gap-2">
-                        <Button variant="outline" size="sm" onClick={() => onEdit(item)}>
-                          <Pencil />
-                          編輯
-                        </Button>
-                        <Button
-                          variant="destructive"
-                          size="sm"
-                          onClick={() => onDelete(item)}>
-                          <Trash2 />
-                          刪除
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                    <TableRow key={item.id}>
+                        <TableCell className="min-w-52 whitespace-normal">
+                            <div className="space-y-1">
+                                <p className="font-medium text-slate-900">{item.name}</p>
+                                <p className="text-xs text-muted-foreground">
+                                    單位：{item.unit}
+                                    {item.notes ? ` · ${item.notes}` : ""}
+                                </p>
+                            </div>
+                        </TableCell>
+                        <TableCell>{item.category}</TableCell>
+                        <TableCell>
+                            <span className="font-medium">{item.currentStock}</span>
+                            <span className="text-muted-foreground"> {item.unit}</span>
+                        </TableCell>
+                        <TableCell>{item.parLevel}</TableCell>
+                        <TableCell>{item.reorderThreshold}</TableCell>
+                        <TableCell>
+                            <Badge variant={getStatusBadgeVariant(status)}>{status}</Badge>
+                        </TableCell>
+                        <TableCell className="text-muted-foreground">
+                            {formatTimestamp(item.updatedAt)}
+                        </TableCell>
+                        <TableCell>
+                            <div className="flex justify-end gap-2">
+                                <Button
+                                    className="py-1 px-2"
+                                    variant="outline"
+                                    size="base"
+                                    onClick={() => onEdit(item)}
+                                >
+                                    <Pencil />
+                                    編輯
+                                </Button>
+                                <Button
+                                    className="py-1 px-2"
+                                    variant="destructive"
+                                    size="base"
+                                    onClick={() => onDelete(item)}
+                                >
+                                    <Trash2 />
+                                    刪除
+                                </Button>
+                            </div>
+                        </TableCell>
+                    </TableRow>
                 );
               })}
             </TableBody>
