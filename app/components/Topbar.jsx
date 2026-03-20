@@ -1,8 +1,14 @@
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router";
+
 import Logo from "../assets/logo.svg";
+import { clearAuthSession, getAuthSession } from "@/features/auth/authSession";
+import { Button } from "@/components/ui/button";
 
 export default function TopBar() {
+  const navigate = useNavigate();
+  const session = getAuthSession();
   const now = new Date();
   const formattedDate = now.toLocaleDateString("zh-HK", {
     year: "numeric",
@@ -10,6 +16,11 @@ export default function TopBar() {
     day: "numeric",
     weekday: "long",
   });
+
+  function handleLogout() {
+    clearAuthSession();
+    navigate("/login", { replace: true });
+  }
 
   return (
       <div className="flex justify-between items-center px-6 py-3 border-b-2 border-chart-1 shadow-sm">
@@ -27,8 +38,14 @@ export default function TopBar() {
 
               <div className="flex items-center gap-2 px-4 py-2 rounded-xl text-primary-foreground bg-primary shadow-md transition-hover hover:opacity-80 cursor-pointer">
                   <FontAwesomeIcon icon={faUser} className="text-sm opacity-80" />
-                  <p className="text-2xl">Mark Ho</p>
+                  <p className="text-2xl">
+                    {session?.displayName ?? "未登入"}{session?.role ? ` · ${session.role}` : ""}
+                  </p>
               </div>
+
+              <Button variant="outline" onClick={handleLogout}>
+                登出
+              </Button>
           </div>
       </div>
   );
