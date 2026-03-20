@@ -9,12 +9,13 @@ function Table({
   ...props
 }) {
   return (
-    <div data-slot="table-container" className="relative w-full overflow-x-auto">
-      <table
-        data-slot="table"
-        className={cn("w-full caption-bottom text-sm", className)}
-        {...props} />
-    </div>
+      <div data-slot="table-container" className="relative w-full overflow-x-auto">
+          <table
+              data-slot="table"
+              className={cn("w-full caption-bottom text-base", className)}
+              {...props}
+          />
+      </div>
   );
 }
 
@@ -104,10 +105,11 @@ function TableCaption({
   ...props
 }) {
   return (
-    <caption
-      data-slot="table-caption"
-      className={cn("mt-4 text-sm text-muted-foreground", className)}
-      {...props} />
+      <caption
+          data-slot="table-caption"
+          className={cn("mt-4 text-base text-muted-foreground", className)}
+          {...props}
+      />
   );
 }
 
