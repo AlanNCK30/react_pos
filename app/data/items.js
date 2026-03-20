@@ -202,7 +202,7 @@ const menuData = {
           name: "芒果綠茶冰沙",
           medium: 36,
           large: 38,
-          opt_group_id: "FRU_TEA", // 冰沙通常不可加熱，可透過此 opt_group 控制
+          opt_group_id: "FRU_TEA",
         },
       ],
     },

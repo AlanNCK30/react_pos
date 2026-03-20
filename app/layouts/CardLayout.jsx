@@ -8,16 +8,24 @@ function CardLayout({ children, className, title }) {
   );
 }
 
-function MenuItemCardLayout({ imagePath, name, price, callback }) {
+function MenuItemCardLayout({
+  imagePath,
+  name,
+  price,
+  callback,
+  children,
+  isRecommand,
+  isSoldOut,
+}) {
   return (
     <button
-      className="group flex flex-col bg-primary rounded-3xl shadow-sm border border-slate-100 overflow-hidden transition-all hover:shadow-md active:scale-95 text-left cursor-pointer h-75"
+      className="group flex flex-col bg-primary rounded-3xl shadow-sm border border-slate-100 overflow-hidden transition-all hover:shadow-md active:scale-95 text-left cursor-pointer h-75 relative"
       onClick={callback}>
       <div className="relative w-full bg-chart-2 aspect-square overflow-hidden">
         <img
           src={imagePath}
           alt={name}
-          className="w-full h-full object-cover transition-transform group-hover:scale-105"
+          className="w-full h-full object-contain transition-transform group-hover:scale-105"
         />
         {price && (
           <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">
@@ -27,7 +35,17 @@ function MenuItemCardLayout({ imagePath, name, price, callback }) {
       </div>
       <div className="p-4 flex flex-col bg-primary-foreground justify-between flex-1">
         <h3 className="text-xl font-bold text-slate-800 leading-tight mb-1 line-clamp-2">{name}</h3>
-        <p className="text-sm text-slate-600 font-medium">基哥推薦</p>
+        <div className="flex justify-between">
+          {children && <p className="text-sm text-slate-600 font-medium">{children}</p>}
+          {isRecommand ? <p className="text-sm text-slate-600 font-medium">基哥推薦</p> : ""}
+        </div>
+      </div>
+      <div>
+        {isSoldOut && (
+          <div className="absolute top-5 right-5 bg-red-700 text-white p-2 text-xl rounded-xl">
+            暫停供應
+          </div>
+        )}
       </div>
     </button>
   );
