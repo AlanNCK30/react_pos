@@ -9,6 +9,16 @@ function ProductManagement() {
       cat_id: cat.id,
     })),
   );
+  const initialCatMap = {
+    CAT_TEA: "茗茶系列",
+    CAT_LATTE: "鮮奶茶系列",
+    CAT_PEARL: "口感/珍珠系列",
+    CAT_FRUIT: "新鮮果茶系列",
+    CAT_SPECIAL: "特調系列",
+    CAT_PURE: "原片冰茶系列",
+    CAT_LATTE_PRO: "茶拿鐵系列",
+    CAT_SEASON: "季節限定系列",
+  };
   const [items, setItems] = useState(allItems);
   const [form, setForm] = useState({
     id: "",
@@ -16,10 +26,13 @@ function ProductManagement() {
     medium: "",
     large: "",
     cat: "CAT_TEA",
+    newCatName: "",
+    isNewCat: false,
     opt_group_id: "",
   });
   const [toggleEdit, setToggleEdit] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  const [catMap, setCatMap] = useState(initialCatMap);
 
   const handleDelete = (id) => {
     if (window.confirm("⚠️ 確定要永久刪除此產品嗎？此操作無法復原。")) {
@@ -37,6 +50,8 @@ function ProductManagement() {
       medium: item.medium,
       large: item.large,
       cat: item.cat_id,
+      newCatName: "",
+      isNewCat: false,
       opt_group_id: item.opt_group_id,
     });
     setToggleEdit(true);
@@ -46,20 +61,28 @@ function ProductManagement() {
     const { id, value } = e.target;
     setForm((prev) => ({ ...prev, [id]: value }));
   };
-  const catMap = {
-    CAT_TEA: "茗茶系列",
-    CAT_LATTE: "鮮奶茶系列",
-    CAT_PEARL: "口感/珍珠系列",
-    CAT_FRUIT: "新鮮果茶系列",
-    CAT_SPECIAL: "特調系列",
-    CAT_PURE: "原片冰茶系列",
-    CAT_LATTE_PRO: "茶拿鐵系列",
-    CAT_SEASON: "季節限定系列",
-  };
+
   const handleSave = () => {
     if (!form.name) {
       return alert("請輸入名稱");
     }
+
+    let finalCatId = form.cat;
+    let finalCatName = catMap[form.cat];
+
+    if (form.isNewCat) {
+      if (!form.newCatName) {
+        return alert("請輸入新分類名稱");
+      }
+      finalCatId = `CAT_${Date.now()}`;
+      finalCatName = form.newCatName;
+
+      setCatMap((prev) => ({
+        ...prev,
+        [finalCatId]: finalCatName,
+      }));
+    }
+
     if (editingId) {
       setItems((prev) =>
         prev.map((item) =>
@@ -69,8 +92,9 @@ function ProductManagement() {
                 name: form.name,
                 medium: Number(form.medium),
                 large: Number(form.large),
-                cat: form.cat,
-                category_name: catMap[form.cat],
+                // cat: form.cat,
+                cat_id: finalCatId,
+                category_name: finalCatName,
               }
             : item,
         ),
@@ -81,13 +105,22 @@ function ProductManagement() {
         id: form.id,
         medium: Number(form.medium),
         large: Number(form.large),
-        category_name: catMap[form.cat],
+        cat_id: finalCatId,
+        category_name: finalCatName,
       };
       setItems([newEntry, ...items]);
     }
 
     setEditingId(null);
-    setForm({ name: "", medium: "", large: "", cat: "CAT_TEA", opt_id: "" });
+    setForm({
+      name: "",
+      medium: "",
+      large: "",
+      cat: "CAT_TEA",
+      opt_id: "",
+      newCatName: "",
+      isNewCat: false,
+    });
     setToggleEdit(!toggleEdit);
   };
 
@@ -97,13 +130,9 @@ function ProductManagement() {
         <h2>產品管理</h2>
         <div>
           <button
-            className={`bg-white text-emerald-600 shadow-sm cursor-pointer mr-4 px-4 py-1.5 rounded-lg text-xl transition-all`}
+            className={`bg-primary text-primary-foreground shadow-sm cursor-pointer mr-4 px-4 py-1.5 rounded-lg text-xl transition-all`}
             onClick={() => setToggleEdit(!toggleEdit)}>
             + 新增產品
-          </button>
-          <button
-            className={`bg-white text-emerald-600 shadow-sm cursor-pointer px-4 py-1.5 rounded-lg text-xl transition-all`}>
-            + 建立新系列
           </button>
         </div>
       </div>
@@ -158,26 +187,49 @@ function ProductManagement() {
             <div>
               <h1>{editingId ? "修改產品" : "新增產品"}</h1>
             </div>
+
+            <div className="flex w-full px-8 items-center">
+              <label htmlFor="isNewCat" className="w-32 shrink-0 text-right mr-4">
+                建立分類:
+              </label>
+              <input
+                type="checkbox"
+                id="isNewCat"
+                checked={form.isNewCat}
+                onChange={(e) => setForm({ ...form, isNewCat: e.target.checked })}
+                className="w-5 h-5 cursor-pointer accent-primary"
+              />
+            </div>
+
             <div className="flex w-full px-8 items-center">
               <label htmlFor="cat_id" className="w-32 shrink-0 text-right mr-4">
                 產品系列:
               </label>
-              <select
-                name="cat"
-                id="cat"
-                value={form.cat}
-                onChange={handleInputChange}
-                className="flex-1 border border-gray-300 rounded-md p-2 outline-none focus-ring-2 focus:ring-blue-500">
-                <option value="CAT_TEA">茗茶系列</option>
-                <option value="CAT_LATTE">鮮奶茶系列</option>
-                <option value="CAT_PEARL">口感/珍珠系列</option>
-                <option value="CAT_FRUIT">新鮮果茶系列</option>
-                <option value="CAT_SPECIAL">特調系列</option>
-                <option value="CAT_PURE">原片冰茶系列</option>
-                <option value="CAT_LATTE_PRO">茶拿鐵系列</option>
-                <option value="CAT_SEASON">季節限定系列</option>
-              </select>
+              {form.isNewCat ? (
+                <input
+                  type="text"
+                  id="newCatName"
+                  value={form.newCatName}
+                  onChange={handleInputChange}
+                  placeholder="請輸入新分類名稱"
+                  className="flex-1 border border-gray-300 rounded-md p-2 outline-none focus-ring-2 focus:ring-blue-500"
+                />
+              ) : (
+                <select
+                  name="cat"
+                  id="cat"
+                  value={form.cat}
+                  onChange={handleInputChange}
+                  className="flex-1 border border-gray-300 rounded-md p-2 outline-none focus-ring-2 focus:ring-blue-500">
+                  {Object.entries(catMap).map(([id, name]) => (
+                    <option key={id} value={id}>
+                      {name}
+                    </option>
+                  ))}
+                </select>
+              )}
             </div>
+
             <div className="flex w-full px-8 items-center">
               <label htmlFor="name" className="w-32 shrink-0 text-right mr-4">
                 產品編號:{" "}

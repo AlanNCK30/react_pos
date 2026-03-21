@@ -1,8 +1,8 @@
 function DashboardBar() {
   return (
     <div className="flex justify-start gap-2 text-secondary  w-full py-2 px-2 text-center">
-      <div className=" py-2 px-4 text-3xl bg-primary/95 rounded-xl mr-auto">
-        <h2 className="text-muted/90 font-black tracking-wider">儀表板</h2>
+      <div className="text-3xl text-black mr-auto">
+        <h2>儀表板</h2>
       </div>
 
       <div className="bg-primary/90 text-background/80 py-2 px-4  rounded-xl flex justify-center items-center text-2xl">

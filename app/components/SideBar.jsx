@@ -7,6 +7,7 @@ import {
   faTable,
   faWarehouse,
   faPenToSquare,
+  faDisplay,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClipboardClock } from "lucide-react";
@@ -14,6 +15,7 @@ import { ClipboardClock } from "lucide-react";
 const menuItems = [
   { name: "儀表板", path: "/", icon: faGauge },
   { name: "POS", path: "/pos", icon: faCashRegister },
+  { name: "廚房顯示系統", path: "/kitchen-display", icon: faDisplay },
   { name: "產品總覽", path: "/product-catalog", icon: faTable },
   { name: "產品管理", path: "/product-management", icon: faPenToSquare },
   { name: "庫存管理", path: "/inventory", icon: faWarehouse },
