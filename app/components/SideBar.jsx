@@ -8,6 +8,7 @@ import {
   faWarehouse,
   faPenToSquare,
   faDisplay,
+  faChartSimple,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClipboardClock } from "lucide-react";
@@ -18,6 +19,7 @@ const menuItems = [
   { name: "廚房顯示系統", path: "/kitchen-display", icon: faDisplay },
   { name: "產品總覽", path: "/product-catalog", icon: faTable },
   { name: "產品管理", path: "/product-management", icon: faPenToSquare },
+  { name: "銷售分析", path: "/sales-analytics", icon: faChartSimple },
   { name: "庫存管理", path: "/inventory", icon: faWarehouse },
   { name: "訂單歷史", path: "/order-history", icon: faTableList },
   { name: "員工管理", path: "/employee", icon: faUser },

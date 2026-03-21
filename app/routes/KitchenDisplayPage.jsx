@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 function KitchenDisplayPage() {
   const [view, setView] = useState("processing");
   const [now, setNow] = useState(Date.now);
-  const MAX_PROCESSING = 4;
+  const MAX_PROCESSING = 6;
 
   const pendingList = [
     {
@@ -114,7 +114,7 @@ function KitchenDisplayPage() {
   };
 
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col h-auto">
       <div className="text-3xl text-black p-3">
         <h2>廚房顯示系統</h2>
       </div>
@@ -140,7 +140,7 @@ function KitchenDisplayPage() {
       </div>
       {/* 訂單內容區 */}
       <div className="flex-1 overflow-y-auto p-6 shadow-2xl m-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 auto-rows-auto">
           {orders[view].map((order) => (
             <div
               key={order.id}

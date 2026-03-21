@@ -13,5 +13,6 @@ export default [
     route("product-catalog", "./routes/ProductCatalog.jsx"),
     route("product-management", "./routes/ProductManagement.jsx"),
     route("kitchen-display", "./routes/KitchenDisplayPage.jsx"),
+    route("sales-analytics", "./routes/AnalyticsPage.jsx"),
   ]),
 ];

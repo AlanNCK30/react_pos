@@ -1,7 +1,7 @@
 function CardLayout({ children, className, title }) {
   return (
     <div
-      className={`flex flex-col mb-2 text-center text-2xl text-primary-foreground/80 bg-primary-foreground/80 rounded-t-2xl overflow-hidden border border-secondary shadow-xl ${className}`}>
+      className={`flex flex-col mb-2 text-center text-2xl text-primary-foreground/80 bg-primary-foreground/80 rounded-2xl overflow-hidden border border-secondary shadow-xl ${className}`}>
       <h3 className=" bg-primary/90 text-accent/95 py-1 mb-2 tracking-widestpromax ring ring-secondary">
         {title}
       </h3>
@@ -118,7 +118,7 @@ function OrderItemCardLayout({ drink, onUpdateQty, onRemove }) {
 
       <button
         onClick={() => onRemove(drink.instanceId)}
-        className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-md opacity-0 group-hover:opacity-100 transition-opacity">
+        className="absolute -top-2 -right-2 w-6 h-6 bg-red-500 text-white rounded-full flex items-center justify-center shadow-md">
         <span className="text-lg font-light leading-none cursor-pointer">×</span>
       </button>
     </div>
