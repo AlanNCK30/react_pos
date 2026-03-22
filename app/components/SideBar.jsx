@@ -9,6 +9,7 @@ import {
   faPenToSquare,
   faDisplay,
   faChartSimple,
+  faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClipboardClock } from "lucide-react";
@@ -20,7 +21,7 @@ const menuItems = [
     name: "廚房顯示系統",
     path: "/kitchen-display",
     icon: faDisplay,
-    roles: ["經理", "收銀", "店主"],
+    roles: ["經理", "收銀", "店主", "廚房"],
   },
   { name: "產品總覽", path: "/product-catalog", icon: faTable, roles: ["經理", "收銀", "店主"] },
   { name: "產品管理", path: "/product-management", icon: faPenToSquare, roles: ["經理", "店主"] },
@@ -28,13 +29,14 @@ const menuItems = [
   { name: "庫存管理", path: "/inventory", icon: faWarehouse, roles: ["經理", "店主"] },
   { name: "訂單歷史", path: "/order-history", icon: faTableList, roles: ["經理", "店主", "收銀"] },
   { name: "員工管理", path: "/employee", icon: faUser, roles: ["店主"] },
+  { name: "會員名錄", path: "/membership", icon: faUserGroup, roles: ["經理", "收銀", "店主"] },
 ];
 
-import { getAuthSession } from "@/features/auth/authSession"
+import { getAuthSession } from "@/features/auth/authSession";
 //  roles: ["經理", "收銀", "店主", "廚房"]
 export default function SideBar() {
   const session = getAuthSession();
-  const userRole = session?.role; 
+  const userRole = session?.role;
   return (
     <div>
       <nav className="flex flex-col">
