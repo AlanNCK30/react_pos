@@ -38,3 +38,11 @@ export function saveInventoryItems(items) {
 
   window.localStorage.setItem(INVENTORY_STORAGE_KEY, JSON.stringify(items));
 }
+
+export function resetInventoryItems() {
+  const nextItems = INVENTORY_SEED_ITEMS.map((item) => ({
+    ...item,
+  }));
+  saveInventoryItems(nextItems);
+  return nextItems;
+}

@@ -34,6 +34,14 @@ export function saveStaffItems(items) {
   window.localStorage.setItem(STAFF_STORAGE_KEY, JSON.stringify(items));
 }
 
+export function resetStaffItems() {
+  const nextItems = STAFF_SEED_ITEMS.map((item) => ({
+    ...item,
+  }));
+  saveStaffItems(nextItems);
+  return nextItems;
+}
+
 export function createStaffItem(newStaff) {
   const currentItems = loadStaffItems();
   const nextItems = [newStaff, ...currentItems];
