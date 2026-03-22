@@ -1,20 +1,22 @@
 export const hourlySalesData = [
-  { time: "10:00", amount: 420, orders: 12 },
-  { time: "11:00", amount: 580, orders: 15 },
-  { time: "12:00", amount: 1200, orders: 35 }, // 午餐高峰
-  { time: "13:00", amount: 950, orders: 28 },
-  { time: "14:00", amount: 600, orders: 18 },
-  { time: "15:00", amount: 1500, orders: 42 }, // 下午茶高峰
-  { time: "16:00", amount: 1100, orders: 30 },
-  { time: "17:00", amount: 800, orders: 22 },
-  { time: "18:00", amount: 750, orders: 20 },
+  { time: "10:00", amount: 420 },
+  { time: "11:00", amount: 850 },
+  { time: "12:00", amount: 2100 },
+  { time: "13:00", amount: 1800 },
+  { time: "14:00", amount: 950 },
+  { time: "15:00", amount: 2400 },
+  { time: "16:00", amount: 1900 },
+  { time: "17:00", amount: 1100 },
+  { time: "18:00", amount: 1300 },
+  { time: "19:00", amount: 900 },
+  { time: "20:00", amount: 500 },
 ];
 export const paymentMethodData = [
-  { name: "現金", value: 4500, fill: "#F59E0B" }, // Amber-500
-  { name: "八達通", value: 8200, fill: "#3B82F6" }, // Blue-500
-  { name: "支付寶", value: 3100, fill: "#0EA5E9" }, // Sky-500
-  { name: "微信支付", value: 2400, fill: "#10B981" }, // Emerald-500
-  { name: "PayMe", value: 1800, fill: "#EF4444" }, // Red-500
+  { name: "現金", value: 4500, fill: "#F59E0B" },
+  { name: "八達通", value: 8200, fill: "#3B82F6" },
+  { name: "支付寶", value: 3100, fill: "#0EA5E9" },
+  { name: "微信支付", value: 2400, fill: "#10B981" },
+  { name: "PayMe", value: 1800, fill: "#EF4444" },
 ];
 export const categorySalesData = [
   { category: "茗茶系列", total: 5200, cups: 260 },
@@ -22,46 +24,160 @@ export const categorySalesData = [
   { category: "特調系列", total: 3400, cups: 120 },
   { category: "果茶系列", total: 4600, cups: 150 },
   { category: "茶拿鐵系列", total: 6100, cups: 210 },
-];
-export const kpiData = [
+].sort((a, b) => b.total - a.total);
+
+export const kpiStats = [
   {
-    id: "NET_SALES",
+    id: "total_sales",
     label: "今日營業額",
-    value: 12840,
+    value: 12840.5,
     unit: "$",
-    change: 12.5, // 相對於昨日上升 12.5%
-    isUp: true,
+    trend: 12.5, // 上升 12.5%
+    isPositive: true,
+    color: "emerald",
     icon: "💰",
-    description: "扣除折扣後的實際收入",
   },
   {
-    id: "ORDER_COUNT",
+    id: "order_count",
     label: "總成交訂單",
     value: 246,
     unit: "單",
-    change: -2.1, // 相對於昨日下降 2.1%
-    isUp: false,
+    trend: -2.4, // 下降 2.4%
+    isPositive: false,
+    color: "rose",
     icon: "🧾",
-    description: "今日已完成結帳的訂單數",
   },
   {
-    id: "AVG_CHECK",
+    id: "avg_check",
     label: "平均客單價",
     value: 52.2,
     unit: "$",
-    change: 5.8,
-    isUp: true,
+    trend: 5.8,
+    isPositive: true,
+    color: "amber",
     icon: "📈",
-    description: "每張訂單的平均消費額",
   },
   {
-    id: "CUP_COUNT",
+    id: "total_cups",
     label: "總出餐杯數",
     value: 418,
     unit: "杯",
-    change: 8.4,
-    isUp: true,
+    trend: 8.4,
+    isPositive: true,
+    color: "blue",
     icon: "🥤",
-    description: "水吧今日累計製作飲品數量",
+  },
+];
+
+export const dailyTransactions = [
+  {
+    id: "TRX-1001",
+    time: "10:15:22",
+    items: "913茶王(L) x1, 珍珠奶茶(M) x1",
+    itemCount: 2,
+    originalAmount: 42,
+    discount: 0,
+    finalAmount: 42,
+    payment: "八達通",
+    status: "completed",
+  },
+  {
+    id: "TRX-1002",
+    time: "11:05:45",
+    items: "御選綠茶(M) x1",
+    itemCount: 1,
+    originalAmount: 18,
+    discount: 90,
+    finalAmount: 16.2,
+    payment: "現金",
+    status: "completed",
+  },
+  {
+    id: "TRX-1003",
+    time: "12:30:10",
+    items: "阿薩姆紅茶(L) x3, 珍珠 x3",
+    itemCount: 3,
+    originalAmount: 72,
+    discount: 0,
+    finalAmount: 72,
+    payment: "支付寶",
+    status: "completed",
+  },
+  {
+    id: "TRX-1004",
+    time: "13:12:55",
+    items: "抹茶拿鐵(L) x1, 仙草 x1",
+    itemCount: 1,
+    originalAmount: 38,
+    discount: 0,
+    finalAmount: 38,
+    payment: "PayMe",
+    status: "completed",
+  },
+  {
+    id: "TRX-1005",
+    time: "14:22:30",
+    items: "香橙綠茶(L) x2",
+    itemCount: 2,
+    originalAmount: 44,
+    discount: 90,
+    finalAmount: 39.6,
+    payment: "八達通",
+    status: "completed",
+  },
+  {
+    id: "TRX-1006",
+    time: "15:45:12",
+    items: "913鮮奶茶(M) x1, 珍珠 x1",
+    itemCount: 1,
+    originalAmount: 24,
+    discount: 0,
+    finalAmount: 24,
+    payment: "微信支付",
+    status: "completed",
+  },
+  {
+    id: "TRX-1007",
+    time: "16:10:05",
+    items: "蜂蜜綠茶(L) x4",
+    itemCount: 4,
+    originalAmount: 88,
+    discount: 90, // 團購優惠
+    finalAmount: 79.2,
+    payment: "信用卡",
+    status: "completed",
+  },
+  {
+    id: "TRX-1008",
+    time: "17:35:20",
+    items: "芒果綠茶冰沙(M) x1",
+    itemCount: 1,
+    originalAmount: 36,
+    discount: 0,
+    finalAmount: 36,
+    payment: "現金",
+    status: "cancelled", // 標註一個取消訂單測試 UI
+  },
+  {
+    id: "TRX-1009",
+    time: "18:20:15",
+    items: "凍頂烏龍茶(L) x1, 珍珠奶綠(M) x1",
+    itemCount: 2,
+    originalAmount: 42,
+    discount: 0,
+    finalAmount: 42,
+    payment: "八達通",
+    status: "completed",
+  },
+  {
+    id: "TRX-1010",
+    time: "19:50:40",
+    items: "抹茶拿鐵(M) x2, 珍珠 x2, 仙草 x2",
+    itemCount: 2,
+    originalAmount: 80,
+    discount: 80,
+    finalAmount: 64,
+    payment: "PayMe",
+    status: "completed",
   },
 ];

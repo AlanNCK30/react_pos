@@ -125,4 +125,44 @@ function OrderItemCardLayout({ drink, onUpdateQty, onRemove }) {
   );
 }
 
-export { CardLayout, MenuItemCardLayout, OrderItemCardLayout };
+function KpiCardLayout({ kpi }) {
+  const { label, value, unit, trend, isPositive, color, icon } = kpi;
+
+  return (
+    <div className="bg-white p-6 rounded-4xl shadow-sm border border-slate-100 flex flex-col transition-all hover:shadow-md hover:-translate-y-1">
+      <div className="flex justify-between items-start mb-4">
+        <div
+          className={`w-12 h-12 rounded-2xl flex items-center justify-center text-2xl bg-${color}-50`}>
+          {icon}
+        </div>
+        <div
+          className={`flex items-center gap-1 px-2 py-1 rounded-lg text-xl font-black ${isPositive ? "bg-emerald-50 text-emerald-600" : "bg-rose-50 text-rose-600"}`}>
+          {isPositive ? "↑" : "↓"} {Math.abs(trend)}%
+        </div>
+      </div>
+
+      <div className="space-y-1">
+        <p className="text-slate-500 font-bold text-2xl uppercase tracking-wider">{label}</p>
+        <div className="flex items-baseline gap-1">
+          {unit === "$" && <span className="text-xl font-black text-slate-400">$</span>}
+          <span className="text-4xl font-black text-slate-800">
+            {typeof value === "number" ? value.toLocaleString() : value}
+          </span>
+          {unit !== "$" && <span className="text-sm font-bold text-slate-400 ml-1">{unit}</span>}
+        </div>
+      </div>
+
+      <div className="mt-4 pt-4 border-t border-slate-50">
+        <p className="text-[14px] text-slate-400 font-medium">
+          對比昨日同時段:{" "}
+          <span className={isPositive ? "text-emerald-500" : "text-rose-500"}>
+            {isPositive ? "+" : "-"}
+            {Math.abs(trend)}%
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+}
+
+export { CardLayout, MenuItemCardLayout, OrderItemCardLayout, KpiCardLayout };
