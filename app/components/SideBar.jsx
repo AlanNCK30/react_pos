@@ -9,6 +9,7 @@ import {
   faPenToSquare,
   faDisplay,
   faChartSimple,
+  faUserGroup,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ClipboardClock } from "lucide-react";
@@ -23,6 +24,7 @@ const menuItems = [
   { name: "庫存管理", path: "/inventory", icon: faWarehouse },
   { name: "訂單歷史", path: "/order-history", icon: faTableList },
   { name: "員工管理", path: "/employee", icon: faUser },
+  { name: "會員名錄", path: "/membership", icon: faUserGroup },
 ];
 
 export default function SideBar() {

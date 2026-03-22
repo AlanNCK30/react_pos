@@ -17,6 +17,7 @@ export const paymentMethodData = [
   { name: "支付寶", value: 3100, fill: "#0EA5E9" },
   { name: "微信支付", value: 2400, fill: "#10B981" },
   { name: "PayMe", value: 1800, fill: "#EF4444" },
+  { name: "信用卡", value: 800, fill: "#b83383" },
 ];
 export const categorySalesData = [
   { category: "茗茶系列", total: 5200, cups: 260 },
@@ -32,7 +33,7 @@ export const kpiStats = [
     label: "今日營業額",
     value: 12840.5,
     unit: "$",
-    trend: 12.5, // 上升 12.5%
+    trend: 12.5,
     isPositive: true,
     color: "emerald",
     icon: "💰",
@@ -42,7 +43,7 @@ export const kpiStats = [
     label: "總成交訂單",
     value: 246,
     unit: "單",
-    trend: -2.4, // 下降 2.4%
+    trend: -2.4,
     isPositive: false,
     color: "rose",
     icon: "🧾",
@@ -142,7 +143,7 @@ export const dailyTransactions = [
     items: "蜂蜜綠茶(L) x4",
     itemCount: 4,
     originalAmount: 88,
-    discount: 90, // 團購優惠
+    discount: 90,
     finalAmount: 79.2,
     payment: "信用卡",
     status: "completed",
@@ -156,7 +157,7 @@ export const dailyTransactions = [
     discount: 0,
     finalAmount: 36,
     payment: "現金",
-    status: "cancelled", // 標註一個取消訂單測試 UI
+    status: "cancelled",
   },
   {
     id: "TRX-1009",

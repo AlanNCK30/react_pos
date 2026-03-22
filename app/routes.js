@@ -14,5 +14,6 @@ export default [
     route("product-management", "./routes/ProductManagement.jsx"),
     route("kitchen-display", "./routes/KitchenDisplayPage.jsx"),
     route("sales-analytics", "./routes/AnalyticsPage.jsx"),
+    route("membership", "./routes/MembershipPage.jsx"),
   ]),
 ];

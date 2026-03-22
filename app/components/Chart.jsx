@@ -258,7 +258,7 @@ function TransactionTable({ data }) {
         <h3 className="text-xl font-black text-slate-800">今日交易流水帳</h3>
       </div>
       <table className="w-full rounded-md overflow-hidden">
-        <thead className="bg-primary text-primary-foreground text-sm">
+        <thead className="bg-primary text-primary-foreground text-xl">
           <tr>
             <th>訂單編號</th>
             <th>時間</th>
