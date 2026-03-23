@@ -2,6 +2,10 @@ import { index, layout, route } from "@react-router/dev/routes";
 
 export default [
   route("login", "./routes/LoginPage.jsx"),
+  layout("./layouts/CustomerLayout.jsx", [
+    route("customer", "./routes/CustomerLandingPage.jsx"),
+    route("customer/menu", "./routes/CustomerMenuPage.jsx"),
+  ]),
   layout("./layouts/RootLayout.jsx", [
     index("./routes/DashboardPage.jsx"),
     route("pos", "./routes/PosPage.jsx"),
