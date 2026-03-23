@@ -1,11 +1,13 @@
+import { Link } from "react-router";
 import { Minus, Plus, Trash2 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { formatConfiguredLine } from "@/features/customer/hooks/useCustomerCart";
 
 import { formatCurrency } from "@/utils/formatters";
 
 export default function CustomerCartPanel({
+  checkoutHref,
   itemCount,
   lines,
   subtotal,
@@ -93,8 +95,18 @@ export default function CustomerCartPanel({
       </div>
 
       <div className="flex items-center justify-between border-t border-slate-200 px-4 py-4">
-        <span className="text-sm text-slate-500">小計</span>
-        <span className="text-xl font-semibold text-slate-950">{formatCurrency(subtotal)}</span>
+        <div>
+          <span className="text-sm text-slate-500">小計</span>
+          <p className="text-xl font-semibold text-slate-950">{formatCurrency(subtotal)}</p>
+        </div>
+        {checkoutHref ? (
+          <Link
+            className={`${buttonVariants({ size: "lg" })} rounded-lg ${lines.length === 0 ? "pointer-events-none opacity-50" : ""}`}
+            to={checkoutHref}
+          >
+            結帳
+          </Link>
+        ) : null}
       </div>
     </section>
   );

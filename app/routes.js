@@ -5,6 +5,8 @@ export default [
   layout("./layouts/CustomerLayout.jsx", [
     route("customer", "./routes/CustomerLandingPage.jsx"),
     route("customer/menu", "./routes/CustomerMenuPage.jsx"),
+    route("customer/checkout", "./routes/CustomerCheckoutPage.jsx"),
+    route("customer/checkout/success", "./routes/CustomerCheckoutSuccessPage.jsx"),
   ]),
   layout("./layouts/RootLayout.jsx", [
     index("./routes/DashboardPage.jsx"),

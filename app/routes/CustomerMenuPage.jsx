@@ -1,6 +1,6 @@
 import { startTransition, useDeferredValue, useState } from "react";
 import { Search } from "lucide-react";
-import { useSearchParams } from "react-router";
+import { Link, useSearchParams } from "react-router";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -185,6 +185,7 @@ export default function CustomerMenuPage() {
 
         <aside className="xl:sticky xl:top-20 xl:self-start" id="cart">
           <CustomerCartPanel
+            checkoutHref="/customer/checkout"
             itemCount={itemCount}
             lines={lines}
             onClearCart={clearCart}
@@ -196,13 +197,13 @@ export default function CustomerMenuPage() {
       </div>
 
       {itemCount > 0 ? (
-        <a
+        <Link
           className="fixed inset-x-4 bottom-4 z-30 flex items-center justify-between rounded-lg bg-slate-950 px-4 py-3 text-md font-medium text-white shadow-xl xl:hidden"
-          href="#cart"
+          to="/customer/checkout"
         >
-          <span>購物袋 {itemCount} 件</span>
+          <span>結帳 {itemCount} 件</span>
           <span>{formatCurrency(subtotal)}</span>
-        </a>
+        </Link>
       ) : null}
 
       <DrinkCustomizerDialog
