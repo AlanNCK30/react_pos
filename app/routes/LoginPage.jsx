@@ -11,14 +11,14 @@ import { resetInventoryItems } from "@/features/inventory/data/inventoryReposito
 import { loadStaffItems, resetStaffItems } from "@/features/staff/data/staffRepository";
 
 function getEnabledDemoAccounts() {
-  // return loadStaffItems().filter((staff) => staff.status === "啟用");
-  return loadStaffItems();
+  return loadStaffItems().filter((staff) => staff.status === "啟用");
+  // return loadStaffItems();
 }
 
 export default function LoginPage() {
   const navigate = useNavigate();
   const existingSession = getAuthSession();
-  const [demoAccounts, setDemoAccounts] = useState(() => getEnabledDemoAccounts());
+  const [demoAccounts, setDemoAccounts] = useState(() => loadStaffItems());
   const [credentials, setCredentials] = useState({
     loginName: "",
     password: "",

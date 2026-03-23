@@ -35,10 +35,10 @@ export const STAFF_SEED_ITEMS = [
   {
     id: "staff-1003",
     name: "趙志光",
-    loginName: "cashier01",
+    loginName: "kitchen01",
     role: "廚房",
     status: "啟用",
-    password: "333333",
+    password: "444444",
     updatedAt: "2026-03-18T10:00:00.000Z",
   },
 ];
