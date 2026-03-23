@@ -80,7 +80,7 @@ export default function CustomerCheckoutPage() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
+    <main className="mx-auto max-w-6xl px-4 py-6 pb-28 sm:px-6 lg:pb-6">
       <div className="mb-4">
         <Link
           className={`${buttonVariants({ variant: "outline" })} rounded-lg border-slate-200`}

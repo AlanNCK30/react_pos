@@ -84,19 +84,13 @@ export default function LoginPage() {
                 基哥茶飲 POS
               </CardTitle>
               <CardDescription className="max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-                輸入登入名稱與密碼後，即可開始使用門市管理功能/POS。
+                登入後，即可開始使用POS。
               </CardDescription>
             </div>
           </CardHeader>
 
           <CardContent className="px-6 pb-8 sm:px-8 lg:px-10 lg:pb-10">
-            <div className="rounded-[1.75rem] bg-white p-5 text-slate-950 shadow-2xl ring-1 ring-slate-200 sm:p-6">
-              <div className="space-y-2">
-                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-400">
-                  登入系統
-                </p>
-              </div>
-
+            <div className="rounded-3xl bg-white p-5 text-slate-950 shadow-2xl ring-1 ring-slate-200 sm:p-6">
               <form className="mt-6 grid gap-5" onSubmit={handleSubmit}>
                 <div className="grid gap-4 md:grid-cols-2">
                   <div className="space-y-2">
@@ -143,15 +137,6 @@ export default function LoginPage() {
                   <Button className="h-12 rounded-xl text-base" type="submit">
                     登入
                   </Button>
-                  <Button
-                    className="h-12 rounded-xl px-5"
-                    type="button"
-                    variant="outline"
-                    onClick={handleResetLatestData}
-                  >
-                    <RotateCcw />
-                    Load
-                  </Button>
                 </div>
               </form>
             </div>
@@ -167,6 +152,15 @@ export default function LoginPage() {
           </CardHeader>
           <CardContent className="px-6 py-6">
             <div className="grid gap-3">
+              <Button
+                className="h-12 rounded-xl px-5"
+                type="button"
+                variant="outline"
+                onClick={handleResetLatestData}
+              >
+                <RotateCcw />
+                Reset Data for demo
+              </Button>
               {demoAccounts.map((staff) => (
                 <div
                   key={staff.id}

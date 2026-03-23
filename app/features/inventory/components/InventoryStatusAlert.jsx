@@ -36,12 +36,12 @@ export function InventoryStatusAlert({ lowStockItems }) {
     }
 
     return (
-        <Alert className="py-5 bg-primary text-emerald-900">
-            <Package className="size-8" />
-            <AlertTitle className="text-xl text-slate-800">庫存狀態正常</AlertTitle>
-            <AlertDescription className=" text-xl text-slate-800">
-                目前沒有項目低於補貨門檻，可以維持現有採購節奏。
-            </AlertDescription>
-        </Alert>
+      <Alert className="py-5 bg-primary text-emerald-900">
+        <Package className="size-8" />
+        <AlertTitle className="text-xl text-slate-800">庫存狀態正常</AlertTitle>
+        <AlertDescription className=" text-xl text-slate-800">
+          目前沒有項目低於補貨門檻。
+        </AlertDescription>
+      </Alert>
     );
 }

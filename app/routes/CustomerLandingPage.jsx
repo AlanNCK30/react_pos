@@ -3,11 +3,11 @@ import { Link } from "react-router";
 
 import { buttonVariants } from "@/components/ui/button";
 import { customerCategories, customerStore } from "@/features/customer/data/customerCatalog";
-import { useCustomerOutlet } from "@/features/customer/hooks/useCustomerOutlet";
+
 import { formatCurrency } from "@/utils/formatters";
 
 export default function CustomerLandingPage() {
-  const { itemCount } = useCustomerOutlet();
+
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-6 sm:px-6">
@@ -17,17 +17,15 @@ export default function CustomerLandingPage() {
             <h1 className="mt-2 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
               {customerStore.name}
             </h1>
-            <p className="mt-3 max-w-xl text-sm leading-7 text-slate-600 sm:text-base">
-              {customerStore.description}
-            </p>
 
             <div className="mt-4 flex flex-wrap gap-2 text-sm text-slate-600">
               <span className="rounded-lg bg-slate-100 px-3 py-2">
                 <Clock3 className="mr-2 inline size-4" />
-                {customerStore.prepTime}
+                等侯時間約 {customerStore.prepTime}分鐘
               </span>
+
               <span className="rounded-lg bg-slate-100 px-3 py-2">
-                {customerStore.serviceHours}
+                營業時間 {customerStore.serviceHours}
               </span>
             </div>
 
@@ -36,15 +34,6 @@ export default function CustomerLandingPage() {
                 進入菜單
                 <ArrowRight className="size-4" />
               </Link>
-              {itemCount > 0 ? (
-                <Link
-                  className={`${buttonVariants({ variant: "outline", size: "lg" })} rounded-lg border-slate-200`}
-                  to="/customer/menu#cart"
-                >
-                  <ShoppingBag className="size-4" />
-                  查看購物袋
-                </Link>
-              ) : null}
             </div>
           </div>
 
@@ -63,7 +52,6 @@ export default function CustomerLandingPage() {
         <div className="mb-4 flex items-end justify-between gap-4">
           <div>
             <h2 className="text-xl font-semibold tracking-tight text-slate-950">按系列點餐</h2>
-            <p className="mt-1 text-sm text-slate-500">{customerStore.notice}</p>
           </div>
           <Link
             className={`${buttonVariants({ variant: "outline" })} hidden rounded-lg sm:inline-flex`}

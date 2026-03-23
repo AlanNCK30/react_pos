@@ -1,8 +1,9 @@
 export const formatCurrency = (amount) => {
     return new Intl.NumberFormat("zh-HK", {
-        style: "currency",
-        currency: "HKD",
-        minimumFractionDigits: 2,
+      style: "currency",
+      currency: "HKD",
+      minimumFractionDigits: 2,
+      currencyDisplay: "narrowSymbol", //not show HK (HK$ -> $)
     }).format(amount);
 };
 

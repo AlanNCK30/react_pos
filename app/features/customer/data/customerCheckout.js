@@ -23,7 +23,7 @@ const customerPromotionOptions = [
     description: "午市時段折抵 HK$12。",
   },
   {
-    id: "MEMBER_10PCT",
+    id: "MEMBER_10",
     title: "會員折扣",
     description: "全單九折，最多折抵 HK$30。",
   },
@@ -78,7 +78,7 @@ export function calculatePromotionDiscount(subtotal, promotionId) {
       return Math.min(subtotal, 20);
     case "LUNCH_12":
       return Math.min(subtotal, 12);
-    case "MEMBER_10PCT":
+    case "MEMBER_10":
       return Math.min(subtotal * 0.1, 30);
     default:
       return 0;
@@ -146,7 +146,7 @@ export function readLatestCheckoutResult() {
     const parsedValue = JSON.parse(rawValue);
     return parsedValue && typeof parsedValue === "object" ? parsedValue : null;
   } catch (error) {
-    console.error("Unable to parse latest checkout result.", error);
+    console.error("", error);
     return null;
   }
 }
