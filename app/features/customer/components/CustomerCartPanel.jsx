@@ -6,7 +6,6 @@ import { formatConfiguredLine } from "@/features/customer/hooks/useCustomerCart"
 import { formatCurrency } from "@/utils/formatters";
 
 export default function CustomerCartPanel({
-  className,
   itemCount,
   lines,
   subtotal,
@@ -36,7 +35,7 @@ export default function CustomerCartPanel({
         {lines.length === 0 ? (
           <div className="py-10 text-sm text-slate-500">尚未加入購物車。</div>
         ) : (
-          <div className="">
+          <div>
             {lines.map((line) => (
               <article key={line.lineId} className="py-4">
                 <div className="flex items-start justify-between gap-4">

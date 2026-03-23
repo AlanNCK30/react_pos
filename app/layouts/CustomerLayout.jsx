@@ -1,15 +1,9 @@
-import { Link, NavLink, Outlet } from "react-router";
+import { Link, Outlet } from "react-router";
 import { ShoppingBag } from "lucide-react";
 
 import { buttonVariants } from "@/components/ui/button";
 import { customerStore } from "@/features/customer/data/customerCatalog";
 import { useCustomerCart } from "@/features/customer/hooks/useCustomerCart";
-import { cn } from "@/lib/utils";
-
-const navItems = [
-  { to: "/customer", label: "首頁" },
-  { to: "/customer/menu", label: "菜單" },
-];
 
 export default function CustomerLayout() {
   const customerCart = useCustomerCart();
@@ -23,16 +17,12 @@ export default function CustomerLayout() {
               基
             </div>
             <div className="min-w-0">
-              <p className="truncate text-base font-semibold">{customerStore.name}</p>
-              <p className="truncate text-sm text-slate-500">{customerStore.subtitle}</p>
+              <p className="truncate text-xl font-semibold">{customerStore.name}</p>
             </div>
           </Link>
 
           <Link
-            className={`
-              ${buttonVariants({ variant: "outline" })}
-              "h-10 rounded-lg border-slate-200 px-3 text-sm"
-            `}
+            className={`${buttonVariants({ variant: "outline" })} h-10 rounded-lg border-slate-200 px-3 text-base`}
             to="/customer/menu#cart"
           >
             <ShoppingBag className="size-4" />

@@ -62,8 +62,6 @@ function buildCartLine(item, config) {
     lineId: createLineId(item, config),
     itemId: item.id,
     itemName: item.name,
-    categoryId: item.categoryId,
-    categoryName: item.categoryName,
     quantity: 1,
     size: config.size,
     sizeLabel: config.size === "large" ? "大杯 (L)" : "中杯 (M)",

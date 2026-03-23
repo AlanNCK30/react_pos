@@ -1,15 +1,14 @@
 import { startTransition, useDeferredValue, useState } from "react";
 import { Search } from "lucide-react";
-import { Link, useSearchParams } from "react-router";
+import { useSearchParams } from "react-router";
 
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { getDefaultConfig } from "@/data/items";
 import CustomerCartPanel from "@/features/customer/components/CustomerCartPanel";
 import DrinkCustomizerDialog from "@/features/customer/components/DrinkCustomizerDialog";
 import {
   customerCategories,
-  customerStore,
   getCustomerMenuSections,
   normalizeCustomerCategoryId,
 } from "@/features/customer/data/customerCatalog";
@@ -26,10 +25,6 @@ export default function CustomerMenuPage() {
     useCustomerOutlet();
 
   const selectedCategoryId = normalizeCustomerCategoryId(searchParams.get("category"));
-  const selectedCategory =
-    selectedCategoryId === "all"
-      ? null
-      : (customerCategories.find((category) => category.id === selectedCategoryId) ?? null);
   const menuSections = getCustomerMenuSections(selectedCategoryId, deferredSearchTerm);
   const resultCount = menuSections.reduce((sum, section) => sum + section.items.length, 0);
 
