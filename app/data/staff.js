@@ -33,7 +33,7 @@ export const STAFF_SEED_ITEMS = [
     updatedAt: "2026-03-18T10:00:00.000Z",
   },
   {
-    id: "staff-1003",
+    id: "staff-1004",
     name: "趙志光",
     loginName: "kitchen01",
     role: "廚房",
