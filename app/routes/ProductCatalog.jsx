@@ -49,12 +49,12 @@ function ProductCatalog() {
         <h2>產品總覽</h2>
         <div>
           <button
-            className={`cursor-pointer mr-4 px-4 py-1.5 rounded-lg text-xl transition-all ${viewMode === "all" ? "bg-white text-emerald-600 shadow-sm" : "text-slate-400"}`}
+            className={`cursor-pointer mr-4 px-4 py-1.5 rounded-lg text-xl transition-all ${viewMode === "all" ? "bg-primary text-primary-foreground shadow-sm" : "text-slate-400"}`}
             onClick={() => setViewMode("all")}>
             顯示全部
           </button>
           <button
-            className={`cursor-pointer px-4 py-1.5 rounded-lg text-xl transition-all ${viewMode === "category" ? "bg-white text-emerald-600 shadow-sm" : "text-slate-400"}`}
+            className={`cursor-pointer px-4 py-1.5 rounded-lg text-xl transition-all ${viewMode === "category" ? "bg-primary text-primary-foreground shadow-sm" : "text-slate-400"}`}
             onClick={() => setViewMode("category")}>
             按分類
           </button>
@@ -143,7 +143,6 @@ function ProductCatalog() {
                 </div>
               </div>
 
-              {/* 營運開關：售罄狀態 */}
               <div className="flex flex-col gap-4">
                 <div className="pt-4 border-t flex justify-between items-center">
                   <span className="font-bold text-slate-700">供應狀態</span>
@@ -182,7 +181,7 @@ function ProductCatalog() {
             </div>
 
             <img
-              src={dummy}
+              src={selectedCat.image_path}
               alt={selectedCat.category_name}
               className="w-full h-48 object-contain rounded-xl mb-4"
             />
