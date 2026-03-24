@@ -22,12 +22,13 @@ function MenuItemCardLayout({
   return (
     <button
       className="group flex flex-col bg-destructive rounded-3xl overflow-hidden transition-all hover:shadow-md active:scale-95 text-left cursor-pointer h-85 bg-linear-to-b shadow-[0_10px_10px_rgba(0,0,0,0.5),0_0_20px_rgba(99,102,241,0.05)]  ring-ring border border-primary-foreground relative"
-      onClick={callback}>
+      onClick={callback}
+    >
       <div className="relative w-full bg-muted/30 aspect-square overflow-hidden">
         <img
           src={imagePath}
           alt={name}
-          className="w-full h-full object-contain transition-transform group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform group-hover:scale-105"
         />
         {price && (
           <div className="absolute bottom-2 right-2 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-sm">

@@ -1,11 +1,18 @@
-import dummy from "../assets/dummy.png";
+import CAT_TEA_IMG from "@/assets/CAT_TEA.jpeg";
+import CAT_LATTE_IMG from "@/assets/CAT_LATTE.jpeg";
+import CAT_PEARL_IMG from "@/assets/CAT_PEARL.jpeg";
+import CAT_FRUIT_IMG from "@/assets/CAT_FRUIT.jpeg";
+import CAT_SEASON_IMG from "@/assets/CAT_SEASON.jpeg";
+import CAT_LATTE_PRO_IMG from "@/assets/CAT_LATTE_PRO.jpeg";
+import CAT_PURE_IMG from "@/assets/CAT_PURE.jpeg";
+import CAT_SPECIAL_IMG from "@/assets/CAT_SPECIAL.jpeg";
 
 const menuData = {
   menu_categories: [
     {
       id: "CAT_TEA",
       category_name: "茗茶系列",
-      image_path: dummy,
+      image_path: CAT_TEA_IMG,
       items: [
         {
           id: "TEA_1",
@@ -33,7 +40,7 @@ const menuData = {
     {
       id: "CAT_LATTE",
       category_name: "鮮奶茶系列",
-      image_path: dummy,
+      image_path: CAT_LATTE_IMG,
       items: [
         {
           id: "LAT_1",
@@ -54,7 +61,7 @@ const menuData = {
     {
       id: "CAT_PEARL",
       category_name: "口感/珍珠系列",
-      image_path: dummy,
+      image_path: CAT_PEARL_IMG,
       items: [
         {
           id: "PRL_1",
@@ -82,7 +89,7 @@ const menuData = {
     {
       id: "CAT_FRUIT",
       category_name: "新鮮果茶系列",
-      image_path: dummy,
+      image_path: CAT_FRUIT_IMG,
       items: [
         {
           id: "FRU_1",
@@ -109,9 +116,9 @@ const menuData = {
       ],
     },
     {
-      id: "CAT_SPECIAL",
+      id: "CAT_SPECIAL_IMG",
       category_name: "特調系列",
-      image_path: dummy,
+      image_path: CAT_SPECIAL_IMG,
       items: [
         {
           id: "SPC_1",
@@ -139,7 +146,7 @@ const menuData = {
     {
       id: "CAT_PURE",
       category_name: "原片冰茶系列",
-      image_path: dummy,
+      image_path: CAT_PURE_IMG,
       items: [
         {
           id: "PUR_1",
@@ -160,7 +167,7 @@ const menuData = {
     {
       id: "CAT_LATTE_PRO",
       category_name: "茶拿鐵系列",
-      image_path: dummy,
+      image_path: CAT_LATTE_PRO_IMG,
       items: [
         {
           id: "LTP_1",
@@ -188,7 +195,7 @@ const menuData = {
     {
       id: "CAT_SEASON",
       category_name: "季節限定系列",
-      image_path: dummy,
+      image_path: CAT_SEASON_IMG,
       items: [
         {
           id: "SEA_1",

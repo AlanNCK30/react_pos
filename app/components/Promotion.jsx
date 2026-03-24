@@ -42,16 +42,18 @@ function Promotion() {
         {promos.map((p) => (
           <div
             key={p.name}
-            className={`flex justify-between items-center px-4 py-3 rounded-xl border-2 shadow-sm transition-transform hover:scale-[1.02] ${p.bg} ${p.border}`}>
+            className={`flex justify-between items-center px-4 py-3 rounded-xl border-2 shadow-sm transition-transform hover:scale-[1.02] ${p.bg} ${p.border}`}
+          >
             <span className={`font-black text-lg ${p.text}`}>{p.name}</span>
             <span
-              className={`px-3 py-1 rounded-lg font-black text-sm bg-white border ${p.border} ${p.text} shadow-sm`}>
+              className={`px-3 py-1 rounded-lg font-black text-sm bg-white border ${p.border} ${p.text} shadow-sm`}
+            >
               {p.discount}
             </span>
           </div>
         ))}
       </div>
-      <p className="mt-2 text-[10px] text-gray-400 text-center italic">
+      <p className="mt-2 text-base text-gray-400 text-center italic">
         * 確認客戶是否有會員卡再套用折扣
       </p>
     </div>
