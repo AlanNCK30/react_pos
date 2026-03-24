@@ -1,6 +1,6 @@
 import { menuData } from "@/data/items";
 import { MenuItemCardLayout } from "@/layouts/CardLayout";
-import dummy from "../assets/dummy.png";
+import dummy from "@/assets/product_img.jpeg";
 import { useState } from "react";
 
 function ProductCatalog() {
@@ -90,7 +90,7 @@ function ProductCatalog() {
               return (
                 <MenuItemCardLayout
                   key={cat.id}
-                  imagePath={dummy}
+                  imagePath={cat.image_path}
                   name={cat.category_name}
                   children={"點擊查看詳情"}
                   callback={() => {
