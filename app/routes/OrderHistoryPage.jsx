@@ -98,7 +98,7 @@ export default function OrderHistoryPage() {
                           <TableCell className="text-foreground">
                             {formatCurrency(order.totalAmount)}
                           </TableCell>
-                          <TableCell className="text-foreground">
+                          <TableCell className="text-foreground truncate">
                             {formatDateTime(order.createdAt)}
                           </TableCell>
                           <TableCell className="text-foreground">{order.cashierName}</TableCell>
